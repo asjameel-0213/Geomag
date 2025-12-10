@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Geomag Terratech Limited</title>
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mQm6X...REPLACE-IF-NEEDED..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <meta name="description" content="Geomag Terratech Limited — innovation-driven construction engineering, surveying, drone services and civil engineering since 2017." />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #b01717;
+      --accent: #d41f1f;
+      --dark: #1a1a1a;
+      --light: #f5f5f5;
+    }
+
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navigation - Same as Homepage */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(176, 23, 23, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 5%;
+      background: rgba(0, 0, 0, 1);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero-about {
+      padding-top: 120px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.85));
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="%23b01717" stroke-width="0.5" opacity="0.1" x="0" y="0" width="50" height="50"/></svg>');
+      background-size: 100px 100px;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(176, 23, 23, 0.4);
+      border: 2px solid rgba(176, 23, 23, 0.3);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Main Content */
+    .content-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    .main-content h2 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .main-content p {
+      color: #555;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .info-card {
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .info-card ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      color: #666;
+    }
+
+    .info-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-sidebar {
+      background: linear-gradient(180deg, #1f1f1f, #111);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+
+    .contact-sidebar h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-sidebar p {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-sidebar .btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Mission & Vision */
+    .mission-vision {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 5%;
+    }
+
+    .mv-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .mv-card {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mv-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .mv-card p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Team Section */
+    .team-section {
+      background: #f9f9f9;
+      padding: 4rem 5%;
+    }
+
+    .team-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .team-container h2 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e0e0e0;
+    }
+
+    .team-card h4 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-card p {
+      color: #666;
+      font-size: 0.80rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #000000, #1b0b0b);
+      color: white;
+      padding: 3rem 5%;
+    }
+
+    .cta-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .cta-container h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-container p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Footer */
+    footer {
+      background: #000000;
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 0.90rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(176, 23, 23, 0.5);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.5rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 0;
+        transition: left 0.3s ease;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 0.9rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .logo span {
+        font-size: 1rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding: 2rem 5%;
+      }
+
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-image img {
+        height: 300px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-sidebar {
+        position: static;
+      }
+
+      .mv-container {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.5rem;
+      }
+    }
+      @media (min-width: 1024px) {
+    body {
+        zoom: 97%;
+    }
+  } 
+
+  /* Social icons positioning */
+.footer-social-wrapper {
+  display: flex;
+  margin-top: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Icon style */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: 0.2s ease;
+}
+
+.social-icon i {
+  font-size: 45px !important;
+  line-height: 1;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="assets/logo.png" alt="Geomag Terratech Logo">
+        </div>
+        <span>GEOMAG TERRATECH</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-about">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Building Tomorrow's Infrastructure — Today</h1>
+        <p>GEOMAG TERRATECH LIMITED is an innovation-driven construction engineering company offering civil engineering, procurement, surveying & mapping, and advanced drone services for site development and urban infrastructure projects.</p>
+        <div class="hero-buttons">
+          <a href="#mission" class="btn btn-primary">Our Mission</a>
+          <a href="#team" class="btn btn-secondary">Meet the Team</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/gallery1.jpeg" alt="Geomag site work" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%231a1a1a%22 width=%22800%22 height=%22600%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.4%22 d=%22M0,300 L200,250 L400,320 L600,280 L800,300 L800,600 L0,600 Z%22/%3E%3C/svg%3E'">
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <div class="content-grid">
+      <div class="main-content">
+        <h2>Who We Are</h2>
+        <p><strong>GEOMAG TERRATECH LIMITED</strong> is an innovation-driven construction engineering company with expertise in civil engineering, procurement, surveying & mapping, and drone services for site development, public works and urban infrastructure. Incorporated in Nigeria under the Companies & Allied Matters Act in <strong>2017</strong>, Geomag combines years of practical experience with modern equipment and emerging technology to deliver accurate, timely and cost-effective project outcomes.</p>
+
+        <div class="info-card">
+          <h3>Core Capabilities</h3>
+          <ul>
+            <li>Civil engineering & site development</li>
+            <li>Surveying & mapping (RTK-capable drones and high precision equipment)</li>
+            <li>Drone-enabled aerial surveying & inspections (Matrice 350 RTK, Phantom 4 RTK)</li>
+            <li>Procurement & project logistics</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Why Clients Choose Us</h3>
+          <p>Reliable delivery, professional team (registered engineers & surveyors), up-to-date equipment and a commitment to sustainable and affordable engineering solutions.</p>
+        </div>
+      </div>
+
+      <aside class="contact-sidebar">
+        <h4>Contact</h4>
+        <p>📍 Suite 7 Sanda Kyarimi Park<br>Shehu Laminu Way, Maiduguri</p>
+        <p><strong>📞 +234-703-971-1441</strong></p>
+        <p>✉️ geomagsurveyengr@gmail.com</p>
+        <p>🕐 Mon-Fri: 8:00 AM - 5:00 PM</p>
+        <a href="https://wa.me/2347039711441" class="btn btn-primary">WhatsApp Us</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision" id="mission">
+    <div class="mv-container">
+      <div class="mv-card">
+        <h3>Our Mission</h3>
+        <p>Our mission is to provide high-quality, affordable, sustainable and cost-effective construction services at a revolutionary price.</p>
+      </div>
+      <div class="mv-card">
+        <h3>Our Vision</h3>
+        <p>Our vision is to be a global company providing cutting-edge construction engineering services at affordable prices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section" id="team">
+    <div class="team-container">
+      <h2>Team & Equipment</h2>
+      <p style="color: #666; max-width: 800px;">Registered engineers, expert surveyors and field personnel supported by modern tools and RTK drones.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <h4>Core Team</h4>
+          <p>Registered professional engineers, surveyors and experienced site staff.</p>
+        </div>
+        <div class="team-card">
+          <h4>Drones</h4>
+          <p>Matrice 350 RTK, Phantom 4 RTK (for high-precision mapping & inspections).</p>
+        </div>
+        <div class="team-card">
+          <h4>Surveying Equipment</h4>
+          <p>High precision GNSS, total stations and modern surveying tools for accurate mapping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div>
+        <h3>Ready to start your project?</h3>
+        <p>Contact us for a proposal, site visit or a meeting to discuss your project requirements.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>Geomag Terratech Limited</h3>
+      <p>Innovation-driven construction engineering company delivering excellence in civil engineering, surveying, and infrastructure development.</p>
+
+      <div class="footer-social-wrapper">
+        <div class="social-links">
+
+          <a class="social-icon" href="https://www.instagram.com/geomagterratech_ltd" target="_blank" rel="noopener noreferrer" aria-label="Geomag Terratech on Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <a class="social-icon" href="https://wa.me/2347039711441" target="_blank" rel="noopener noreferrer" aria-label="Chat with Geomag Terratech on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <p>📍 Suite 7 Sanda Kyarimi Park<br>Shehu Laminu Way, Maiduguri<br>Borno State, Nigeria</p>
+      <p>📞 +234-703-971-1441</p>
+      <p>✉️ geomagsurveyengr@gmail.com</p>
+      <p>🕐 Mon-Fri: 8:00 AM - 5:00 PM</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Our Services</h3>
+      <a href="services.html">Civil Engineering</a>
+      <a href="services.html">Surveying & Mapping</a>
+      <a href="services.html">Drone Services</a>
+      <a href="services.html">Procurement</a>
+      <a href="services.html">Site Development</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Geomag Terratech Limited. All rights reserved. | Incorporated November 9, 2017</p>
+  </div>
+</footer>
+
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

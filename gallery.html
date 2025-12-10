@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Gallery — Geomag Terratech Limited</title>
+  <meta name="description" content="Browse our complete portfolio of construction engineering projects." />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #b01717;
+      --accent: #d41f1f;
+      --dark: #1a1a1a;
+      --light: #f5f5f5;
+    }
+
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(176, 23, 23, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 5%;
+      background: rgba(0, 0, 0, 1);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .hero-gallery {
+      padding-top: 120px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.85));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 3rem;
+    }
+
+    .hero-gallery::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="%23b01717" stroke-width="0.5" opacity="0.1" x="0" y="0" width="50" height="50"/></svg>');
+      background-size: 100px 100px;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-gallery h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-gallery p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .gallery-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-header h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 280px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(176, 23, 23, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-overlay h3 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-overlay p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #000000;
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(176, 23, 23, 0.5);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 0;
+        transition: left 0.3s ease;
+      }
+
+      body {
+        zoom: 80%;
+    }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .logo span {
+        font-size: 1.2rem;
+      }
+
+      .hero-gallery h1 {
+        font-size: 1.8rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        display: none;
+      }
+
+      .hero-gallery h1 {
+        font-size: 1.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 1024px) {
+      body {
+        zoom: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="assets/logo.png" alt="Geomag Terratech Logo">
+        </div>
+        <span>GEOMAG TERRATECH</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero-gallery">
+    <div class="hero-content">
+      <h1>Project Gallery</h1>
+      <p>Explore our portfolio of completed and ongoing construction projects</p>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <h2>Our Work in Pictures</h2>
+    </div>
+
+    <div class="gallery-grid">
+      
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 10.jpeg" alt="Project 1" data-caption="LCNG Station Construction" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.3%22 d=%22M0,150 L100,130 L200,160 L300,140 L400,150 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 1%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 1</h3>
+          <p>LCNG Station Construction</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 12.jpeg" alt="Project 2" data-caption="Site Development Work" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.35%22 d=%22M0,170 L120,150 L240,180 L360,160 L400,170 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 2%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 2</h3>
+          <p>Site Development Work</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 14.jpeg" alt="Project 3" data-caption="Road Infrastructure" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.32%22 d=%22M0,160 L110,140 L220,170 L330,150 L400,160 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 3%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 3</h3>
+          <p>Road Infrastructure</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/og.jpeg" alt="Project 4" data-caption="Aerial Survey Mapping" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.28%22 d=%22M0,155 L105,135 L210,165 L315,145 L400,155 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 4%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 4</h3>
+          <p>Aerial Survey Mapping</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 8.jpeg" alt="Project 5" data-caption="Foundation Work" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.36%22 d=%22M0,145 L115,125 L230,155 L345,135 L400,145 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 5%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 5</h3>
+          <p>Foundation Work</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 1.jpeg" alt="Project 6" data-caption="Structural Development" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.33%22 d=%22M0,165 L95,145 L190,175 L285,155 L400,165 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 6%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 6</h3>
+          <p>Structural Development</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 7.jpeg" alt="Project 7" data-caption="Drone Surveying" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.31%22 d=%22M0,158 L108,138 L216,168 L324,148 L400,158 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 7%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 7</h3>
+          <p>Drone Surveying</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project16.jpeg" alt="Project 8" data-caption="Equipment Setup" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.29%22 d=%22M0,152 L102,132 L204,162 L306,142 L400,152 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 8%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 8</h3>
+          <p>Equipment Setup</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project4.jpeg" alt="Project 9" data-caption="Site Preparation" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.34%22 d=%22M0,162 L112,142 L224,172 L336,152 L400,162 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 9%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 9</h3>
+          <p>Site Preparation</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project.jpeg" alt="Project 10" data-caption="Utility Installation" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.37%22 d=%22M0,148 L98,128 L196,158 L294,138 L400,148 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 10%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 10</h3>
+          <p>Utility Installation</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 7.jpeg" alt="Project 11" data-caption="Grading Work" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a1a%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.3%22 d=%22M0,156 L106,136 L212,166 L318,146 L400,156 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 11%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 11</h3>
+          <p>Grading Work</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="assets/project 18.jpeg" alt="Project 12" data-caption="Final Inspection" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%232d2d2d%22 width=%22400%22 height=%22300%22/%3E%3Cpath fill=%22%23b01717%22 opacity=%220.32%22 d=%22M0,150 L100,130 L200,160 L300,140 L400,150 L400,300 L0,300 Z%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2220%22 text-anchor=%22middle%22%3EProject 12%3C/text%3E%3C/svg%3E'">
+        <div class="gallery-overlay">
+          <h3>Project 12</h3>
+          <p>Final Inspection</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <img src="" alt="" id="lightboxImage">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Geomag Terratech Limited</h3>
+        <p>Innovation-driven construction engineering company delivering excellence in civil engineering, surveying, and infrastructure development.</p>
+      </div>
+    </div>
+  </footer>  
+</body>
+</html>

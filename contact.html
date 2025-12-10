@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us — Geomag Terratech Limited</title>
+  <meta name="description" content="Get in touch with Geomag Terratech Limited for your construction engineering, surveying, and drone service needs." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #b01717;
+      --accent: #d41f1f;
+      --dark: #1a1a1a;
+      --light: #f5f5f5;
+    }
+
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(176, 23, 23, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 5%;
+      background: rgba(0, 0, 0, 1);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero-contact {
+      padding-top: 120px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.85));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 4rem;
+    }
+
+    .hero-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="%23b01717" stroke-width="0.5" opacity="0.1" x="0" y="0" width="50" height="50"/></svg>');
+      background-size: 100px 100px;
+      opacity: 0.3;
+    }
+
+    .hero-contact .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-contact h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-contact p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    .contact-form-container h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .contact-form-container p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(176, 23, 23, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(176, 23, 23, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Contact Info Cards */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, #f9f9f9, #ffffff);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(176, 23, 23, 0.15);
+      border-color: var(--primary);
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .info-card p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .info-card a:hover {
+      color: var(--accent);
+    }
+
+    /* Map Section */
+    .map-section {
+      background: #f9f9f9;
+      padding: 4rem 5%;
+    }
+
+    .map-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .map-container h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      height: 450px;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+    }
+
+    /* Quick Contact Buttons */
+    .quick-contact {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+    .quick-contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quick-contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .quick-contact p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .quick-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .quick-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2.5rem;
+      background: white;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .quick-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .quick-btn-icon {
+      font-size: 1.4rem;
+    }
+
+    /* Office Hours */
+    .hours-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .hours-card {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .hours-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .hour-item {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hour-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hour-item p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.05rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #000000;
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+   /* Social icons positioning */
+.footer-social-wrapper {
+  display: flex;
+  margin-top: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Icon style */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: 0.2s ease;
+}
+
+.social-icon i {
+  font-size: 45px !important;
+  line-height: 1;
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+} 
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      padding: 1rem;
+      background: #27ae60;
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 0;
+        transition: left 0.3s ease;
+      }
+
+         body {
+        zoom: 77%;
+    }
+
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .logo span {
+        font-size: 1.2rem;
+      }
+
+      .hero-contact h1 {
+        font-size: 2rem;
+      }
+
+      .hero-contact p {
+        font-size: 1rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-form-container {
+        padding: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-buttons {
+        flex-direction: column;
+      }
+
+      .quick-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo span {
+        display: none;
+      }
+
+      .hero-contact h1 {
+        font-size: 1.6rem;
+      }
+
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+
+      .contact-form-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+      @media (min-width: 1024px) {
+    body {
+        zoom: 70%;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="assets/logo.png" alt="Geomag Terratech Logo">
+        </div>
+        <span>GEOMAG TERRATECH</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-contact">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>Ready to start your project? Contact us today for a consultation, proposal, or any inquiries about our services</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-grid">
+      
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and we'll get back to you as soon as possible</p>
+        
+        <div class="success-message" id="successMessage">
+          ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+        </div>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+234 XXX XXX XXXX">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="surveying">Surveying & Mapping</option>
+                <option value="drone">Drone Services</option>
+                <option value="procurement">Procurement</option>
+                <option value="site">Site Development</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        
+        <div class="info-card">
+          <div class="info-icon">  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2">
+    <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg></div>
+          <h3>Visit Our Office</h3>
+          <p>Suite 7 Sanda Kyarimi Park</p>
+          <p>Shehu Laminu Way</p>
+          <p>Maiduguri, Borno State</p>
+          <p>Nigeria</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><div class="info-icon">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13 1.21.45 2.39.94 3.5a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.58-1.45a2 2 0 0 1 2.11-.45c1.11.49 2.29.81 3.5.94a2 2 0 0 1 1.72 1.97z"/>
+  </svg>
+</div>
+</div>
+          <h3>Call Us</h3>
+          <p>Phone: <a href="tel:+2347039711441">+234-703-971-1441</a></p>
+          <p>Available Monday - Friday</p>
+          <p>8:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><div class="info-icon">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M2 6l10 7 10-7"/>
+  </svg>
+</div>
+</div>
+          <h3>Email Us</h3>
+          <p><a href="mailto:geomagsurveyengr@gmail.com">geomagsurveyengr@gmail.com</a></p>
+          <p>We respond within 24 hours</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"> <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="2" y1="12" x2="22" y2="12"/>
+    <ellipse cx="12" cy="12" rx="4" ry="10"/>
+  </svg></div>
+          <h3>Follow Us</h3>
+          <p>Stay connected on social media</p>
+          <div class="social-links">
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/geomagterratech_ltd" target="_blank" class="social-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/2347039711441" target="_blank" class="social-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+      <path d="M21 11.5a9.5 9.5 0 0 1-14.2 8.3L3 21l1.3-3.8A9.5 9.5 0 1 1 21 11.5z"/>
+      <path d="M8.5 9.5c.5 1.5 2 3 3.5 3.5"/>
+    </svg>
+  </a>
+
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quick Contact Buttons -->
+  <section class="quick-contact">
+    <div class="quick-contact-container">
+      <h2>Need Immediate Assistance?</h2>
+      <p>Reach out to us directly through your preferred channel</p>
+      <div class="quick-buttons">
+        <a href="tel:+2347039711441" class="quick-btn">
+          <span class="quick-btn-icon">  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.18 8.18 2 2 0 0 1 5 6h3l2 4-2 2a16 16 0 0 0 6 6l2-2 4 2z"/>
+  </svg></span>
+          <span>Call Now</span>
+        </a>
+        <a href="https://wa.me/2347039711441" target="_blank" class="quick-btn">
+          <span class="quick-btn-icon">  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 11.5a9.5 9.5 0 0 1-14.2 8.3L3 21l1.3-3.8A9.5 9.5 0 1 1 21 11.5z"/>
+    <path d="M8.5 9.5c.5 1.5 2 3 3.5 3.5"/>
+  </svg>
+</span>
+          <span>WhatsApp</span>
+        </a>
+        <a href="mailto:geomagsurveyengr@gmail.com" class="quick-btn">
+          <span class="quick-btn-icon">  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="M2 6l10 7 10-7"/>
+  </svg></span>
+          <span>Email Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Hours -->
+  <section class="hours-section">
+    <div class="hours-card">
+      <h2>Office Hours</h2>
+      <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">We're here to serve you during these hours</p>
+      <div class="hours-grid">
+        <div class="hour-item">
+          <h4>Monday - Friday</h4>
+          <p>8:00 AM - 5:00 PM</p>
+        </div>
+        <div class="hour-item">
+          <h4>Saturday</h4>
+          <p>By Appointment Only</p>
+        </div>
+        <div class="hour-item">
+          <h4>Sunday</h4>
+          <p>Closed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="map-container">
+      <h2>Find Us on the Map</h2>
+      <div class="map-wrapper">
+        <p>📍 Suite 7 Sanda Kyarimi Park, Shehu Laminu Way, Maiduguri, Borno State</p>
+        <!-- Google link to be added -->
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Footer -->
+<footer id="contact">
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>Geomag Terratech Limited</h3>
+      <p>Innovation-driven construction engineering company delivering excellence in civil engineering, surveying, and infrastructure development.</p>
+
+      <div class="footer-social-wrapper">
+        <div class="social-links">
+
+          <a class="social-icon" href="https://www.instagram.com/geomagterratech_ltd" target="_blank" rel="noopener noreferrer" aria-label="Geomag Terratech on Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <a class="social-icon" href="https://wa.me/2347039711441" target="_blank" rel="noopener noreferrer" aria-label="Chat with Geomag Terratech on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <p>📍 Suite 7 Sanda Kyarimi Park<br>Shehu Laminu Way, Maiduguri<br>Borno State, Nigeria</p>
+      <p>📞 +234-703-971-1441</p>
+      <p>✉️ geomagsurveyengr@gmail.com</p>
+      <p>🕐 Mon-Fri: 8:00 AM - 5:00 PM</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Our Services</h3>
+      <a href="services.html">Civil Engineering</a>
+      <a href="services.html">Surveying & Mapping</a>
+      <a href="services.html">Drone Services</a>
+      <a href="services.html">Procurement</a>
+      <a href="services.html">Site Development</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Geomag Terratech Limited. All rights reserved. | Incorporated November 9, 2017</p>
+  </div>
+</footer>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Show success message
+      successMessage.classList.add('show');
+      
+      // Reset form
+      contactForm.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+      
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+
+</body>
+</html>
